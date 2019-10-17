@@ -1,6 +1,11 @@
 package com.priactice.algorithm.checkHome;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class AddTwoNumber {
     public ListNode solution(ListNode l1,ListNode l2){
         int carry=0;
@@ -63,10 +68,22 @@ public class AddTwoNumber {
 
 
     public static void main(String []args){
-        int s=7%3;
-        System.out.println(s);
-
-
+        List list=new ArrayList();
+        list.add("1");
+        list.add("10");
+        list.add("2");
+        list.add("5");
+        list.add("4");
+        list.add("3");
+        String [] strings={"1","5","4","3","8","2"};
+        Collections.sort(list);
+        Arrays.sort(strings);
+        for (String s:strings) {
+            System.out.print(s+",");
+        }
+        for (Object o:list){
+            System.out.print(o+",");
+        }
     }
 }
 class ListNode{

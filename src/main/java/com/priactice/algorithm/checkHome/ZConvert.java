@@ -81,7 +81,7 @@ public class ZConvert {
 
 
     /*
-    *思路
+    *思路：找出每行元素索引的规律
     按照与逐行读取 Z 字形图案相同的顺序访问字符串。
 
    算法
@@ -125,7 +125,11 @@ public class ZConvert {
 
         for (char c : s.toCharArray()) {
             rows.get(curRow).append(c);
-            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;
+            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;//反转goingDown
+            /*
+            当goingDown为true时，curRow=curRow+1；
+            当goingDown为false时，curRow=curRow-1；
+            **/
             curRow += goingDown ? 1 : -1;
         }
 
@@ -133,6 +137,7 @@ public class ZConvert {
         for (StringBuilder row : rows) ret.append(row);
         return ret.toString();
     }
+
     public static  void main(String []args){
 
         ZConvert zConvert=new ZConvert();
